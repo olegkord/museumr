@@ -27,8 +27,8 @@ let artist = require('./controllers/artists_controller');
 let painting = require('./controllers/paintings_controller');
 
 app.use('/', home);
-app.use('/artist', artist);
-app.use('/painting', painting);
+app.use('/artists', artist);
+app.use('/paintings', painting);
 
 let server = app.listen(3000, () => {
   let host = server.address().address;
