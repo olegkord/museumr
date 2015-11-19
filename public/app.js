@@ -1,3 +1,5 @@
+'use strict';
+
 $(function() {
   console.log('Scripts loaded');
 
@@ -23,10 +25,13 @@ $(function() {
     event.preventDefault();
     console.log('new artist added');
   })
-})
 
-function renderArtists = function(data) {
-  console.log(rendering artists);
+  let renderArtists = function(data) {
+    console.log('rendering artists');
 
-  //render your artists here.
-}
+    console.log(data);
+
+    //render your artists here.
+  }
+
+});
