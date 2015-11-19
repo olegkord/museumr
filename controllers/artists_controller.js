@@ -6,7 +6,7 @@ let bodyParser = require('body-parser');
 let Artist = require('../models/artists.js');
 
 router.route('/view')
-  .get( (req,res, artist) => {
+  .get( (req,res) => {
     console.log('viewwwing')
     Artist.find(null, (err, artist) => {
 
@@ -14,6 +14,19 @@ router.route('/view')
     })
 
   });
+
+router.route('/edit')
+  .post( (req,res) => {
+    let artistParams = req.body.params;
+
+    Artist.findByIdAndUpdate(artistParams.id,
+       {$set: artistParams},
+       (error, artist) =>{
+         if(error) throw error;
+
+         res.json(artist);
+    })
+  })
 
   router.route('/')
 

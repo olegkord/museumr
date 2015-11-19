@@ -14,7 +14,6 @@ router.route('/index')
       if (error) throw error;
 
       console.log(painting);
-
       res.json(painting);
     });
   });
@@ -22,7 +21,26 @@ router.route('/index')
 router.route('/create')
   .post( (req,res) => {
     console.log('SAVING PAINTING ROUTE');
+
+    let newPainting = new Painting(req.body.params);
+
+    newPainting.save( (error,painting) => {
+      if(error) res.status(401).send({message: error.errmsg});
+
+      return res.status(200).send({message: "Painting added to collection"});
+    })
   })
+
+  router.route('/delete')
+    .post( (req, res) => {
+      console.log('DELETING PAINTING');
+
+      Painting.find(req.body.params).remove( (error) => {
+        if (error) res.status(401).send({message: error.errmsg});
+
+        return res.status(200).send({message: "Painting delete successful"});
+      })
+   })
 
 
 module.exports = router;
