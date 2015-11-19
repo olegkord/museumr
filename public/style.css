@@ -3,6 +3,9 @@ body {
   background-size: cover;
 }
 
+div {
+  border: solid black 2px;
+}
 
 ul {
   list-style-type: none;
@@ -96,6 +99,10 @@ ul {
   z-index: 0;
 }
 
-#new-artist{
-  display: hidden;
+.new-artist{
+  display: none;
+  width: 300px;
+  height: 500px;
+  margin: 0px auto;
+  text-align: center;
 }
