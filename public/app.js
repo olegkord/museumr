@@ -9,7 +9,7 @@ $(function() {
   $('#artist-add').click( (event) => {
     event.preventDefault();
     console.log('clicked add artist');
-    $('.new-artist').show();
+    $('.form-div#new-artist').show();
   })
 
   $('#artists-view').click( (event) => {
@@ -29,16 +29,23 @@ $(function() {
     console.log('new artist added');
   })
 
+
+
   var renderArtists = function(data){
     // console.log('rendering artists');
-    $('.new-artist').hide();
+    $('.form-div#new-artist').hide();
     var $list =$ ('.results-div');
     console.log($list);
 
-    console.log(data[0]);
+    console.log(data);
     var compiledTemplate = renderTemplate_artists({artist: data})
 
     $list.html('').append(compiledTemplate);
+
+    registerClickEvents();
   }
 
+  var registerClickEvents = function() {
+    $artistList = $('.results-div > .artist');
+  }
 });
