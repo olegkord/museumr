@@ -38,7 +38,7 @@ router.route('/create')
       Painting.find(req.body.params).remove( (error) => {
         if (error) res.status(401).send({message: error.errmsg});
 
-        return res.status(200).send({message: "Painting delete successful"});
+        else return res.status(200).send({message: "Painting delete successful"});
       })
    })
 
