@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 let mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/museum_db');
+mongoose.connect('mongodb://localhost/museumrApp');
 
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

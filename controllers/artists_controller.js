@@ -8,9 +8,11 @@ let artistEvent = require('../models/artists.js');
 router.route('/view')
   .get( (req,res, next) => {
     console.log('viewwwing')
+
     res.send('Route: "/" Hellooo Artist');
   })
 
+var parseArtist
 
 
 module.exports = router;
