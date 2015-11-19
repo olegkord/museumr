@@ -9,7 +9,7 @@ let app = require('../server.js');
 let Artist = require('../models/artist');
 let Painting = require('../models/painting');
 
-router.route('/')
+router.route('/home')
   .get( (req,res) => {
     console.log('Home Route');
 
