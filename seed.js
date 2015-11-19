@@ -1,5 +1,5 @@
 var Artist = require('./models/artists.js'),
-  Painting = require('./models/paintings.js').model,
+  Painting = require('./models/paintings.js'),
   mongoose = require('mongoose');
 
 
@@ -63,6 +63,7 @@ picasso.save(function(err) {
   if (err) {
     console.log(err)
   } else {
+    debugger;
     var picasso1 = new Painting({
       title: paintings[0][0],
       img_url: painting_photo[0][0],
@@ -104,6 +105,7 @@ vangogh.save(function(err) {
   if (err) {
     console.log(err)
   } else {
+
     var p3 = new Painting({
       title: paintings[1][0],
       img_url: painting_photo[1][0],
