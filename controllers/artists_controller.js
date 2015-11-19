@@ -3,16 +3,20 @@
 let express = require('express');
 let router = express.Router();
 let bodyParser = require('body-parser');
-let artistEvent = require('../models/artists.js');
+let Artist = require('../models/artists.js');
 
 router.route('/view')
-  .get( (req,res, next) => {
+  .get( (req,res, artist) => {
     console.log('viewwwing')
+    Artist.find(null, (err, artist) => {
 
-    res.send('Route: "/" Hellooo Artist');
-  })
+      res.json(artist)
+    })
 
-var parseArtist
+  });
+
+  router.route('/')
+
 
 
 module.exports = router;
