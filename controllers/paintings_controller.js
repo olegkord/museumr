@@ -9,14 +9,19 @@ let Painting = require('../models/paintings.js');
 router.route('/index')
   .get( (req, res) => {
     console.log('PAINTING INDEX ROUTE')
-    debugger;
+
     Painting.find( null, (error, painting) => {
       if (error) throw error;
 
       console.log(painting);
 
-    })
+      res.json(painting);
+    });
+  });
 
+router.route('/create')
+  .post( (req,res) => {
+    console.log('SAVING PAINTING ROUTE');
   })
 
 
