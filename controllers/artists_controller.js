@@ -15,7 +15,9 @@ router.route('/view')
 
   });
 
-  router.route('/new')
+
+  router.route('/')
+
 
 
 
