@@ -23,10 +23,14 @@ $(function() {
     event.preventDefault();
     console.log('new artist added');
   })
-})
 
-function renderArtists = function(data) {
-  console.log(rendering artists);
+  let renderArists = function(data){
+    console.log('rendering artists');
+
+    console.log(data);
+  }
+
+});
+
 
   //render your artists here.
-}
