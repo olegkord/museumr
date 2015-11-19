@@ -24,6 +24,7 @@ $(function() {
     console.log('clicked add painting');
   })
 
+
   $('#new-artist').click( (event) => {
     event.preventDefault();
     console.log('new artist added');
