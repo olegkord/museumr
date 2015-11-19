@@ -1,11 +1,11 @@
 $(function() {
   console.log('Scripts loaded');
 
-  $('#aritst-add').click( (event) => {
-
+  $('#artist-add').click( (event) => {
+    console.log('clicked add artist');
   })
 
-  $('#painting-add').click( (event) => {
-    
+  $('#painting-add').click( (event) =>  {
+    console.log('clicked add painting');
   })
 })
