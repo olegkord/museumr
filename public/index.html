@@ -23,16 +23,16 @@
       <br><button type="Description" value="submit">Add new Artist</button>
     </form>
  </div>
+ <div class="results-div">
 
-
+ </div>
 
     <template id="show-all" type = "text/x-handlebars-template">
-      {{#each renderArtists}}
-      <p>
-        {{renderArtists}}
-      </p>
-       {{/each}}
+      {{#each artist}}
+      <h1>{{this.name}} | {{this.nationality}}</h1>
+      {{/each}}
     </template>
+
     <script src="app.js"></script>
   </body>
 </html>

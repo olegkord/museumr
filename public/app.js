@@ -1,5 +1,10 @@
+'use strict';
+
 $(function() {
   console.log('Scripts loaded');
+
+  var renderTemplate_artists = Handlebars.compile($('template#show-all').html());
+
 
   $('#artist-add').click( (event) => {
     event.preventDefault();
@@ -24,10 +29,16 @@ $(function() {
     console.log('new artist added');
   })
 
-  let renderArists = function(data){
-    console.log('rendering artists');
+  var renderArtists = function(data){
+    // console.log('rendering artists');
+    $('.new-artist').hide();
+    var $list =$ ('.results-div');
+    console.log($list);
 
-    console.log(data);
+    console.log(data[0]);
+    var compiledTemplate = renderTemplate_artists({artist: data})
+
+    $list.html('').append(compiledTemplate);
   }
 
 });
