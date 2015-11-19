@@ -42,6 +42,3 @@ $(function() {
   }
 
 });
-
-
-  //render your artists here.

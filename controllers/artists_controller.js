@@ -12,8 +12,7 @@ router.route('/')
     Artist.find(null, (err, artist) => {
 
       res.json(artist)
-    })
-
+    });
   });
 
 
@@ -29,8 +28,8 @@ router.route('/create')
       if (error) return res.status(401).send({message: error.errmsg});
 
       else return res.status(200).send({message: "Artist Saved Successfully"});
-    })
-  })
+      });
+    });
 
 //EDIT ARTIST!!!
 router.route('/edit/:id')
@@ -44,8 +43,8 @@ router.route('/edit/:id')
        (error, artist) =>{
          if(error) throw error;
          res.json(artist);
-    })
-  });
+      });
+    });
 
 //SHOW INDIVIDUAL ARTIST!!!
 router.route('/show/:id')
@@ -54,15 +53,23 @@ router.route('/show/:id')
     console.log('Hit show individual artist');
     let artistParams = req.body.params;
 
-    Artist.findOne({artistParams}, (error, artist) => {
+    Artist.findOne(artistParams, (error, artist) => {
       if(error) throw error;
 
       res.json(artist);
-    })
-  })
+      });
+    });
 
+ router.route('/delete')
+  .get( (req,res) => {
+    //Get artist parameters from the URL and delete.
+    let artistParams = req.body.params;
 
+    Artist.findOne(artistParams).remove( (error) => {
+      if (error) res.status(401).send({message: error.errmsg});
 
-
+      else return res.status(200).send({message: "Painting delete successful"});
+      });
+    });
 
 module.exports = router;
