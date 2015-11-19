@@ -28,9 +28,13 @@
  </div>
 
     <template id="show-all" type = "text/x-handlebars-template">
+      <ul class="artist">
       {{#each artist}}
-      <h1>{{this.name}} | {{this.nationality}}</h1>
+      <li><h3>{{this.name}} | {{this.nationality}} | {{this.birthyear}}</h3></li>
+      <li><img class="artist-image" src={{this.img_url}} alt=""></img></li>
+      <li><p>{{this.description}}</p></li>
       {{/each}}
+    </ul>
     </template>
 
     <script src="app.js"></script>
