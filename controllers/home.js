@@ -5,8 +5,8 @@ let router = express.Router();
 let bodyParser = require('body-parser');
 
 
-let Artist = require('../models/artist');
-let Painting = require('../models/painting');
+let Artist = require('../models/artists');
+let Painting = require('../models/paintings');
 
 router.route('/home')
   .get( (req,res) => {
