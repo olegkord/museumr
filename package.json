@@ -1,10 +1,10 @@
 {
   "name": "museumr",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,5 +15,14 @@
     "mongoose": "^4.2.6",
     "morgan": "^1.6.1",
     "path": "^0.12.7"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olegkord/museumr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/olegkord/museumr/issues"
+  },
+  "homepage": "https://github.com/olegkord/museumr#readme",
+  "description": ""
 }
