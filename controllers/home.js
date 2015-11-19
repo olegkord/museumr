@@ -4,7 +4,6 @@ let express = require('express');
 let router = express.Router();
 let bodyParser = require('body-parser');
 
-let app = require('../server.js');
 
 let Artist = require('../models/artist');
 let Painting = require('../models/painting');
