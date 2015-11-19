@@ -13,9 +13,9 @@ router.route('/view')
       res.json(artist)
     })
 
-
-
   });
+
+  router.route('/new')
 
 
 
