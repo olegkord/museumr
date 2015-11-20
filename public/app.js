@@ -3,8 +3,9 @@
 $(function() {
   console.log('Scripts loaded');
 
-  var renderTemplate_artists = Handlebars.compile($('template#show-all').html());
 
+  var renderTemplate_artists = Handlebars.compile($('template#show-all').html());
+  let renderTemplate_ONE_artist = Handlebars.compile($('template#show-one').html());
   // $('#new-artist').on("submit", function(e){
   //   event.preventDefault();
   //   console.log( $(this).serialize());
@@ -15,6 +16,9 @@ $(function() {
     $.get('/artists/' + $('#artist-name').val(), re)
 
   })
+
+
+
 
 
   $('#artist-add').click( (event) => {
@@ -51,35 +55,53 @@ $(function() {
 
 
 
-  var renderArtists = function(data){
-    // console.log('rendering artists');
-    $('.form-div#new-artist').hide();
-    var $list =$ ('.results-div');
-    console.log($list);
+  let renderArtists = function(data){
+    console.log('rendering artists');
+    let $list = $('.results-div');
 
-    console.log(data);
-    var compiledTemplate = renderTemplate_artists({artist: data})
+    let compiledTemplate = renderTemplate_artists({artist: data})
 
     $list.html('').append(compiledTemplate);
 
     registerClickEvents(data);
   }
 
-  var registerClickEvents = function(data) {
+  let renderOneArtist = function(data){
+    console.log('rendering ONE artist');
+    console.log(data[0]);
+
+    let $list = $('.results-div');
+    let artistPaintings = data[0].paintings;
+
+    let renderObject = {
+      artist: data[0],
+      paintings: artistPaintings
+    };
+
+//NEED AJAX FOR PAINTINGS NOW ??!?!?!?! CRAP
+
+
+    console.log(renderObject);
+
+    let compiledTempate = renderTemplate_ONE_artist({artist: renderObject})
+    $list.html('').append(compiledTempate);
+  }
+
+  let registerClickEvents = function(data) {
     let $artistList = $('.results-div > .artist');
+
     console.log('registering click events');
-    console.log(data);
 
     for (let i = 0; i < $artistList.length; i++) {
       $artistList.eq(i).click( (event) => {
+
+        //$('.results-div#artists-display').hide();
+
         let id = data[i]._id;
+        console.log(id);
         //AJAX TIME!
-        $.get('/artists/'+id, (data) => {
-
-        })
-      })
-
+        $.get('/artists/'+id, renderOneArtist, 'json');
+      });
     }
-
-    }
-  });
+  }
+});
