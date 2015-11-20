@@ -43,10 +43,20 @@ $(function() {
 
     $list.html('').append(compiledTemplate);
 
-    registerClickEvents();
+    registerClickEvents(data);
   }
 
-  var registerClickEvents = function() {
-    $artistList = $('.results-div > .artist');
-  }
-});
+  var registerClickEvents = function(data) {
+    let $artistList = $('.results-div > .artist');
+    console.log('registering click events');
+    console.log(data);
+
+    for (var i = 0; i < $artistList.length; i++) {
+      console.log('look I = ' + i)
+      $artistList.get(i).click( (event) => {
+        console.log('clicked an artist');
+      })
+    }
+
+    }
+  });
