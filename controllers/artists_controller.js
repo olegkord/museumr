@@ -32,7 +32,7 @@ router.route('/create')
     });
 
 //EDIT ARTIST!!!
-router.route('/edit/:id')
+router.route('/:id')
   .post( (req,res) => {
     //get the artist parameters from the URL/request.
     console.log('Hit artist view path!');
@@ -47,7 +47,7 @@ router.route('/edit/:id')
     });
 
 //SHOW INDIVIDUAL ARTIST!!!
-router.route('/show/:id')
+router.route('/:id')
   .get( (req, res) => {
     //Get the artist parameters from the URL/request.
     console.log('Hit show individual artist');

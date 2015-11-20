@@ -48,11 +48,13 @@
 
     <template id="show-all" type = "text/x-handlebars-template">
       {{#each artist}}
-      <ul class="artist">
-        <li><h3>{{this.__v}}  |  {{this.name}} | {{this.nationality}} | {{this.birthyear}}</h3></li>
-        <li><img class="artist-image" src={{this.img_url}} alt={{this.id}}></img></li>
-        <li><p>{{this.description}}</p></li>
-      </ul>
+      <div class="artist">
+        <ul >
+          <li><h3>{{this.__v}}  |  {{this.name}} | {{this.nationality}} | {{this.birthyear}}</h3></li>
+          <li><img class="artist-image" src={{this.img_url}} alt={{this.id}}></img></li>
+          <li><p>{{this.description}}</p></li>
+        </ul>
+      </div>
       {{/each}}
     </template>
 
