@@ -36,9 +36,11 @@ router.route('/:id')
   .get( (req, res) => {
     //Get the artist parameters from the URL/request.
     console.log('Hit show individual artist');
-    let artistParams = req.body.params;
+    //let artistParams = req.body.params;
 
-    Artist.findOne(artistParams, (error, artist) => {
+    console.log(req.params.id)
+
+    Artist.find({_id: req.params.id}, (error, artist) => {
       if(error) throw error;
 
       res.json(artist);

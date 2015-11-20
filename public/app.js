@@ -53,16 +53,23 @@ $(function() {
 
   let renderOneArtist = function(data){
     console.log('rendering ONE artist');
-    console.log(data);
+    console.log(data[0]);
 
     let $list = $('.results-div');
-    let artistPaintings = data.paintings;
+    let artistPaintings = data[0].paintings;
 
-    let compiledTempate = renderTemplate_ONE_artist({
-      artist: data,
+    let renderObject = {
+      artist: data[0],
       paintings: artistPaintings
-    })
+    };
 
+//NEED AJAX FOR PAINTINGS NOW ??!?!?!?! CRAP
+
+
+    console.log(renderObject);
+
+    let compiledTempate = renderTemplate_ONE_artist({artist: renderObject})
+    $list.html('').append(compiledTempate);
   }
 
   let registerClickEvents = function(data) {
@@ -73,10 +80,10 @@ $(function() {
     for (let i = 0; i < $artistList.length; i++) {
       $artistList.eq(i).click( (event) => {
 
-        $('.results-div#artists-display').hide();
+        //$('.results-div#artists-display').hide();
 
         let id = data[i]._id;
-
+        console.log(id);
         //AJAX TIME!
         $.get('/artists/'+id, renderOneArtist, 'json');
       });
