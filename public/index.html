@@ -9,46 +9,51 @@
     <title>Museumr</title>
   </head>
   <body>
-    hey
+
     <button type="button" id="artist-add" name="new-artist">New Artist</button>
     <button type="button" id="painting-add" name="new-artist">New Painting</button>
     <button type="button" id="artists-view" name="view-artists">View Artists</button>
-    <button type="button" id="painting-new-stuff" name="painting-add-new">New Paintingx</button
 
-  <div class="new-artist">
-    <form method="post">
-      <h4>Artist Name</h4><input type="text" id="artist-name" name="name" size="25"></input>
-      <h4>Image URL</h4><input type="text" id="image-url" name="name" size="25" /></input>
-      <h4>Nationality</h4><input type="text" id="artist-nationality" name="name" size="25"></input>
-      <h4>Birth year</h4><input type="text" id="artist-birthyear" name="name" size="25" /></input>
-      <h4>Brief description</h4><input type="text" id="artist-description" name="name" size="25" /></input>
-      <br><button type="Description" value="submit">Add new Artist</button>
-    </form>
- </div>
+    <div class="results-div">
 
- <div class="form-div" id="new-painting">
-   <form method="get">
-      <h4>Your Painting</h4><input type="text" id="painting-info" name=name size="50"></input>
-      <h4>Year Made</h4><input type="text" id="painting-year" name=name size="25"></input>
-      <h4>Title</h4><input type="text" id="painting-title" name=name size="25"></input>
-      <br><button type="Description" value="submit">Add new painting</button>
-   </form>
-</div>
+    </div>
+
+    <div class="form-div" id="">
 
 
+    </div>
 
- <div class="results-div">
 
- </div>
+    <div class="form-div" id="new-artist">
+      <form method="post">
+        <h4>Artist Name</h4><input type="text" id="artist-name" name="name" size="25"></input>
+        <h4>Image URL</h4><input type="text" id="image-url" name="name" size="25" /></input>
+        <h4>Nationality</h4><input type="text" id="artist-nationality" name="name" size="25"></input>
+        <h4>Birth year</h4><input type="text" id="artist-birthyear" name="name" size="25" /></input>
+        <h4>Brief description</h4><input type="text" id="artist-description" name="name" size="25" /></input>
+        <br><button type="Description" value="submit">Add new Artist</button>
+      </form>
+     </div>
+
+     <div class="form-div" id="new-painting">
+       <form method="get">
+          <h4>Your Painting</h4><input type="text" id="painting-info" name=name size="50"></input>
+          <h4>Year Made</h4><input type="text" id="painting-year" name=name size="25"></input>
+          <h4>Title</h4><input type="text" id="painting-title" name=name size="25"></input>
+          <br><button type="Description" value="submit">Add new painting</button>
+       </form>
+    </div>
+
+
 
     <template id="show-all" type = "text/x-handlebars-template">
-      <ul class="artist">
       {{#each artist}}
-      <li><h3>{{this.name}} | {{this.nationality}} | {{this.birthyear}}</h3></li>
-      <li><img class="artist-image" src={{this.img_url}} alt=""></img></li>
-      <li><p>{{this.description}}</p></li>
+      <ul class="artist">
+        <li><h3>{{this.__v}}  |  {{this.name}} | {{this.nationality}} | {{this.birthyear}}</h3></li>
+        <li><img class="artist-image" src={{this.img_url}} alt={{this.id}}></img></li>
+        <li><p>{{this.description}}</p></li>
+      </ul>
       {{/each}}
-    </ul>
     </template>
 
     <script src="app.js"></script>
