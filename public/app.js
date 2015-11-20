@@ -10,10 +10,15 @@ $(function() {
     event.preventDefault();
     console.log('clicked add artist');
     $('.form-div#new-artist').show();
+    $('.form-div#new-painting').hide();
+    $('.results-div#artists-display').hide();
   })
 
   $('#artists-view').click( (event) => {
     event.preventDefault();
+    $('.results-div#artists-display').show();
+    $('.form-div#new-artist').hide();
+    $('.form-div#new-painting').hide();
     console.log('view ALL artists');
 
     $.get('http://localhost:3000/artists', renderArtists, 'json')
@@ -21,7 +26,9 @@ $(function() {
 
   $('#painting-add').click( (event) =>  {
     event.preventDefault();
-    $('.new-artist').hide();
+    $('.results-div#artists-display').hide();
+    $('.form-div#new-painting').show();
+    $('.form-div#new-artist').hide();
     console.log('clicked add painting');
   })
 
