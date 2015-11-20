@@ -97,6 +97,7 @@ ul {
   width: 600px;
   text-align: center;
   z-index: 0;
+  display: none;
 }
 
 .new-artist{

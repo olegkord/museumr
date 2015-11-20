@@ -21,6 +21,7 @@ $(function() {
 
   $('#painting-add').click( (event) =>  {
     event.preventDefault();
+    $('.new-artist').hide();
     console.log('clicked add painting');
   })
 
