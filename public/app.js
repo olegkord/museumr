@@ -51,11 +51,15 @@ $(function() {
     console.log('registering click events');
     console.log(data);
 
-    for (var i = 0; i < $artistList.length; i++) {
-      console.log('look I = ' + i)
-      $artistList.get(i).click( (event) => {
-        console.log('clicked an artist');
+    for (let i = 0; i < $artistList.length; i++) {
+      $artistList.eq(i).click( (event) => {
+        let id = data[i]._id;
+        //AJAX TIME!
+        $.get('/artists/'+id, (data) => {
+
+        })
       })
+
     }
 
     }
