@@ -5,6 +5,17 @@ $(function() {
 
   var renderTemplate_artists = Handlebars.compile($('template#show-all').html());
 
+  // $('#new-artist').on("submit", function(e){
+  //   event.preventDefault();
+  //   console.log( $(this).serialize());
+  //   console.log('new artist added')
+  // });
+
+  $('#new-artist').submit(function(e){
+    $.get('/artists/' + $('#artist-name').val(), re)
+
+  })
+
 
   $('#artist-add').click( (event) => {
     event.preventDefault();
@@ -33,10 +44,10 @@ $(function() {
   })
 
 
-  $('#new-artist').click( (event) => {
-    event.preventDefault();
-    console.log('new artist added');
-  })
+  // $('#new-artist').click( (event) => {
+  //   event.preventDefault();
+  //   console.log('new artist added');
+  // })
 
 
 
