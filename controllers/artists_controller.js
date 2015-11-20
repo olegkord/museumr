@@ -33,6 +33,18 @@ router.route('/create')
 
 //EDIT ARTIST!!!
 router.route('/:id')
+  .get( (req, res) => {
+    //Get the artist parameters from the URL/request.
+    console.log('Hit show individual artist');
+    let artistParams = req.body.params;
+
+    Artist.findOne(artistParams, (error, artist) => {
+      if(error) throw error;
+
+      res.json(artist);
+      });
+    })
+
   .post( (req,res) => {
     //get the artist parameters from the URL/request.
     console.log('Hit artist view path!');
@@ -47,18 +59,8 @@ router.route('/:id')
     });
 
 //SHOW INDIVIDUAL ARTIST!!!
-router.route('/:id')
-  .get( (req, res) => {
-    //Get the artist parameters from the URL/request.
-    console.log('Hit show individual artist');
-    let artistParams = req.body.params;
 
-    Artist.findOne(artistParams, (error, artist) => {
-      if(error) throw error;
 
-      res.json(artist);
-      });
-    });
 
  router.route('/delete')
   .get( (req,res) => {

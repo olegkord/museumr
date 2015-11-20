@@ -3,8 +3,8 @@
 $(function() {
   console.log('Scripts loaded');
 
-  var renderTemplate_artists = Handlebars.compile($('template#show-all').html());
-
+  let renderTemplate_artists = Handlebars.compile($('template#show-all').html());
+  let renderTemplate_ONE_artist = Handlebars.compile($('template#show-one').html());
 
   $('#artist-add').click( (event) => {
     event.preventDefault();
@@ -40,35 +40,46 @@ $(function() {
 
 
 
-  var renderArtists = function(data){
-    // console.log('rendering artists');
-    $('.form-div#new-artist').hide();
-    var $list =$ ('.results-div');
-    console.log($list);
+  let renderArtists = function(data){
+    console.log('rendering artists');
+    let $list = $('.results-div');
 
-    console.log(data);
-    var compiledTemplate = renderTemplate_artists({artist: data})
+    let compiledTemplate = renderTemplate_artists({artist: data})
 
     $list.html('').append(compiledTemplate);
 
     registerClickEvents(data);
   }
 
-  var registerClickEvents = function(data) {
-    let $artistList = $('.results-div > .artist');
-    console.log('registering click events');
+  let renderOneArtist = function(data){
+    console.log('rendering ONE artist');
     console.log(data);
+
+    let $list = $('.results-div');
+    let artistPaintings = data.paintings;
+
+    let compiledTempate = renderTemplate_ONE_artist({
+      artist: data,
+      paintings: artistPaintings
+    })
+
+  }
+
+  let registerClickEvents = function(data) {
+    let $artistList = $('.results-div > .artist');
+
+    console.log('registering click events');
 
     for (let i = 0; i < $artistList.length; i++) {
       $artistList.eq(i).click( (event) => {
+
+        $('.results-div#artists-display').hide();
+
         let id = data[i]._id;
+
         //AJAX TIME!
-        $.get('/artists/'+id, (data) => {
-
-        })
-      })
-
+        $.get('/artists/'+id, renderOneArtist, 'json');
+      });
     }
-
-    }
-  });
+  }
+});

@@ -44,13 +44,22 @@
        </form>
     </div>
 
+    <template id="show-one" type = "text/x-handlebars=template">
+      <h2>{{artist.name}}</h2>
 
+      {{#each painting}}
+
+      <h3>{{this.name}}</h3>
+
+      {{/each}}
+
+    </template>
 
     <template id="show-all" type = "text/x-handlebars-template">
       {{#each artist}}
       <div class="artist">
         <ul >
-          <li><h3>{{this.__v}}  |  {{this.name}} | {{this.nationality}} | {{this.birthyear}}</h3></li>
+          <li><h3>{{this.name}} | {{this.nationality}} | {{this.birthyear}}</h3></li>
           <li><img class="artist-image" src={{this.img_url}} alt={{this.id}}></img></li>
           <li><p>{{this.description}}</p></li>
         </ul>
